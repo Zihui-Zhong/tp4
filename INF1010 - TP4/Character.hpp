@@ -42,8 +42,8 @@ public:
 	// Friends
 	template < typename K, typename U >
 	  friend
-	ostream& operator << ( ostream&, const Character<K, U>& c)
-	{
+	ostream& operator << ( ostream&, const Character<K, U>& c);
+	/*{
 		return o << c.name_ <<", "<<c.class_<<endl
 				 <<"-     Fighting : "<<c.baseSkills_.fighting<<" + "
 				 <<c.realSkills_.fighting-c.baseSkills_.fighting<<endl
@@ -55,7 +55,7 @@ public:
 				 <<c.realSkills_.sorcery-c.baseSkills_.sorcery<<endl
 	
 				 <<"- Damage : "<< c.computeDamageOutput()<<endl;	
-	}
+	}*/
 	
 	// Constructors and destructor
 	Character ( )
@@ -139,12 +139,12 @@ public:
 	
 	void print ( ) const
 	{
-		cout<< name_ <<", "<<class_<<endl
+		cout<< name_ <<", "<<class_.getName()<<endl
 			<<"-     Fighting : "<<baseSkills_.fighting<<" + "
 			<<realSkills_.fighting-baseSkills_.fighting<<endl
 
-			<<"- Marksmanship : "<<baseSkills_.¸marksmanship<<" + "
-			<<realSkills_.¸marksmanship-baseSkills_.¸marksmanship<<endl
+			<<"- Marksmanship : "<<baseSkills_.marksmanship<<" + "
+			<<realSkills_.marksmanship-baseSkills_.marksmanship<<endl
 	
 			<<"-      Sorcery : "<<baseSkills_.sorcery<<" + "
 			<<realSkills_.sorcery-baseSkills_.sorcery<<endl
@@ -183,9 +183,9 @@ template <
 	typename Key,
 	typename T
 >
-ostream& operator << ( ostream&, const Character<Key, T>& c)
+ostream& operator << ( ostream& o, const Character<Key, T>& c)
 {
-	return o << c.name_ <<", "<<c.class_<<endl
+	return o << c.name_ <<", "<<c.class_.getName()<<endl
 			 <<"-     Fighting : "<<c.baseSkills_.fighting<<" + "
 			 <<c.realSkills_.fighting-c.baseSkills_.fighting<<endl
 
