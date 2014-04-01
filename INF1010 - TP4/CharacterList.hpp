@@ -69,7 +69,7 @@ class IsRightClass
 {
 public:
 	// Constructors and destructor
-	IsRightClass ( const ClassInfo<int>& = ClassInfo<int>() );
+	IsRightClass ( const ClassInfo<int>& clas= ClassInfo<int>() );
 
 	// Function call operators
 	bool operator () ( const Character<string, int>* class_) const;

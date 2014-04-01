@@ -41,11 +41,21 @@ Character<string, int>* CharacterList::findStrongest ( ) const{
 
 Character<string, int>* CharacterList::findStrongest ( const ClassInfo<int>& class_) const
 {
-	sort(characters_.begin(), characters_.end(), compareDamage);
-	stable_sort(characters_.begin(), characters_.end(),compareClass);
+	vector<Character<string, int>*> copy;
+	IsRightClass a(class_);
+	copy_if(characters_.begin(),characters_.end(),copy.begin(),a);
 	return *max_element(characters_.begin(),characters_.end(),compareDamage);
 
 }
+
+IsRightClass::IsRightClass( const ClassInfo<int>& clas= ClassInfo<int>() ){
+	criteria_=clas;
+}
+
+bool IsRightClass::operator () ( const Character<string, int>* class_) const{
+	return criteria_.getName()==class_->getName();
+}
+
 
 bool compareClass ( Character<string, int>* char1, Character<string, int>* char2){
 	return char1->getClass().getName()>char2->getClass().getName();
