@@ -14,6 +14,6 @@ void CharacterList::sortCharacters ( const Pred& predicat){
 	sort(characters_.begin(), characters_end(), predicat);
 }
 
-/*vector<Character<string, int>*>& CharacterList::getCharacters ( ) const{
+const vector<Character<string, int>*>& CharacterList::getCharacters ( ) const{
 	return characters_;
-}*/
+}
