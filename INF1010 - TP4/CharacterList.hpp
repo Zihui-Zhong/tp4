@@ -40,16 +40,19 @@ public:
 	// Modifying methods
 	void insert ( Character<string, int>* character);
 	void erase ( Character<string, int>* character);
-	
+
 	template < typename Pred >
-	    void sortCharacters ( const Pred& predicat);
-	
+	void sortCharacters ( const Pred& predicat)
+	{
+		sort(characters_.begin(), characters_end(), predicat);
+	}
+
 	// Non-modifying methods
 	const vector<Character<string, int>*>& getCharacters ( ) const;
-	
-	                   void print ( ) const;
-	                   void printByClass ( ) const;
-	                   void printByDamage ( ) const;
+
+	void print ( ) const;
+	void printByClass ( ) const;
+	void printByDamage ( ) const;
 	Character<string, int>* findStrongest ( ) const;
 	Character<string, int>* findStrongest ( const ClassInfo<int>& ) const;
 
@@ -68,7 +71,7 @@ class IsRightClass
 public:
 	// Constructors and destructor
 	IsRightClass ( const ClassInfo<int>& = ClassInfo<int>() );
-	
+
 	// Function call operators
 	bool operator () ( const Character<string, int>* ) const;
 

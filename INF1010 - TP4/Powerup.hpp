@@ -31,16 +31,32 @@ class Powerup
 {
 public:
 	// Constructors and destructor
-	Powerup ( const Bonus<T>* bonus= nullptr, const SkillPoints<T>* skillPoints= nullptr );
+	Powerup ( const Bonus<T>* bonus= nullptr, const SkillPoints<T>* skillPoints= nullptr ){
+	targetBasePoints_ = skillPoints;
+	effect_ = bonus;
+}
 
 	
 	// Modifying methods
-	void applyEffectOn ( SkillPoints<T>& sp);
-	void removeEffectFrom ( SkillPoints<T>& sp);
-	
+	void applyEffectOn ( SkillPoints<T>& sp)
+{
+	sp= sp+effect_->compute(sp);
+}
+	void removeEffectFrom ( SkillPoints<T>& sp)
+{
+	sp= sp-effect_->compute(sp);
+}
+
 	// Non-modifying methods
-	const SkillPoints<T>* getTargetBasePoints ( ) const;
-	      const Bonus<T>* getEffect ( ) const;
+	const SkillPoints<T>* getTargetBasePoints ( ) const
+{
+	return targetBasePoints_;
+}
+	      const Bonus<T>* getEffect ( ) const
+{
+	return effect_;
+}
+
 	
 
 
