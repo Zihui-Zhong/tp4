@@ -25,6 +25,8 @@ using namespace std;
 
 int main ( )
 {
+	/*
+	
 	// Instanciez chaque bonus.
 	MagicWeaponEffect magicWeaponEffect;
 	MagicBowEffect magicBowEffect;
@@ -149,5 +151,7 @@ int main ( )
 	
 	// Affichez le nom du Warrior le plus puissant.
 	cout<<"Warrior le plus puissant: "<<charList.findStrongest(warrior)->getName()<<endl;
+
+	*/
 }
 

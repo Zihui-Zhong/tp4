@@ -101,13 +101,13 @@ public:
 	
 	void insertPowerup ( const Key& key, const Powerup<T>& p)
 	{
-		powerups_[k] = p;
+		powerups_[key] = p;
 		computeRealSkills();
 	}
 
-	void removePowerup ( const Key& k)
+	void removePowerup ( const Key& key)
 	{
-		powerups_.erase(k);
+		powerups_.erase(key);
 		computeRealSkills();
 	}
 	
@@ -183,8 +183,20 @@ template <
 	typename Key,
 	typename T
 >
-ostream& operator << ( ostream&, const Character<Key, T>& );
+ostream& operator << ( ostream&, const Character<Key, T>& c)
+{
+	return o << c.name_ <<", "<<c.class_<<endl
+			 <<"-     Fighting : "<<c.baseSkills_.fighting<<" + "
+			 <<c.realSkills_.fighting-c.baseSkills_.fighting<<endl
 
+			 <<"- Marksmanship : "<<c.baseSkills_.¸marksmanship<<" + "
+			 <<c.realSkills_.¸marksmanship-baseSkills_.¸marksmanship<<endl
+	
+			 <<"-      Sorcery : "<<c.baseSkills_.sorcery<<" + "
+			 <<c.realSkills_.sorcery-c.baseSkills_.sorcery<<endl
+	
+			 <<"- Damage : "<< c.computeDamageOutput()<<endl;	
+}
 //}
 
 //}
