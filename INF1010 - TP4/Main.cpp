@@ -100,7 +100,7 @@ int main ( )
 	
 	
 	cout << "\n\n" << string(80, '*') << "\n\n";
-	/*
+	
 	
 	// Ajoutez le power-up Magic Weapon à Aragorn et à Captain America.
 	aragorn.insertPowerup("Magic Weapon", magicWeapon);
@@ -129,7 +129,7 @@ int main ( )
 	
 	cout << "\n\n" << string(80, '*') << "\n\n";
 	
-	
+	/*
 	// Ajoutez Aragorn à la liste.
 	charList.insert(&aragorn);
 	

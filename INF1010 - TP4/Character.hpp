@@ -129,16 +129,6 @@ public:
 	void print ( ) const
 	{
 		cout<<(*this);
-		/*cout<< name_ <<", "<<class_.getName()<<endl
-			<<"-     Fighting : "<<baseSkills_.fighting<<" + "
-			<<realSkills_.fighting-baseSkills_.fighting<<endl
-
-			<<"- Marksmanship : "<<baseSkills_.marksmanship<<" + "
-			<<realSkills_.marksmanship-baseSkills_.marksmanship<<endl
-	
-			<<"-      Sorcery : "<<baseSkills_.sorcery<<" + "
-			<<realSkills_.sorcery-baseSkills_.sorcery<<endl
-			<<"- Damage : "<< computeDamageOutput()<<endl;*/
 	}
 
 	T computeDamageOutput ( ) const
@@ -146,6 +136,11 @@ public:
 		return class_.computeDamage(realSkills_);
 	}
 
+	//Non modifying operator
+	bool operator == ( const Character& c) const
+	{
+		return name_==c.name_;
+	}
 
 protected:
 	              string name_;
