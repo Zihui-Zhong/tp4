@@ -60,8 +60,10 @@ Character<string, int>* CharacterList::findStrongest ( const ClassInfo<int>& cla
 {
 	vector<Character<string, int>*> copy_(characters_.size());
 	IsRightClass a(class_);
-	copy_if(characters_.begin(),characters_.end(),copy_.begin(),a);
-	return *max_element(characters_.begin(),characters_.end(),compareDamage);
+	auto it=copy_if(characters_.begin(),characters_.end(),copy_.begin(),a);
+	copy_.resize(std::distance(copy_.begin(),it));  // shrink container to new size
+
+	return *max_element(copy_.begin(),copy_.end(),compareDamage);
 
 }
 
@@ -70,7 +72,7 @@ IsRightClass::IsRightClass( const ClassInfo<int>& clas ){
 }
 
 bool IsRightClass::operator () ( const Character<string, int>* class_) const{
-	return criteria_.getName()==class_->getName();
+	return criteria_.getName()==class_->getClass().getName();
 }
 
 
