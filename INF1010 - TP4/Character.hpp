@@ -70,6 +70,8 @@ public:
 	{
 		name_ = nom;
 		class_ = classe;
+		baseSkills_=classe.getInitialSkills();
+		
 	}
 	
 	// Modifying methods
