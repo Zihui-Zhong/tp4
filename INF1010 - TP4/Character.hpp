@@ -43,19 +43,6 @@ public:
 	template < typename K, typename U >
 	  friend
 	ostream& operator << ( ostream&, const Character<K, U>& c);
-	/*{
-		return o << c.name_ <<", "<<c.class_<<endl
-				 <<"-     Fighting : "<<c.baseSkills_.fighting<<" + "
-				 <<c.realSkills_.fighting-c.baseSkills_.fighting<<endl
-
-				 <<"- Marksmanship : "<<c.baseSkills_.¸marksmanship<<" + "
-				 <<c.realSkills_.¸marksmanship-baseSkills_.¸marksmanship<<endl
-	
-				 <<"-      Sorcery : "<<c.baseSkills_.sorcery<<" + "
-				 <<c.realSkills_.sorcery-c.baseSkills_.sorcery<<endl
-	
-				 <<"- Damage : "<< c.computeDamageOutput()<<endl;	
-	}*/
 	
 	// Constructors and destructor
 	Character ( )
@@ -139,7 +126,8 @@ public:
 	
 	void print ( ) const
 	{
-		cout<< name_ <<", "<<class_.getName()<<endl
+		cout<<(*this);
+		/*cout<< name_ <<", "<<class_.getName()<<endl
 			<<"-     Fighting : "<<baseSkills_.fighting<<" + "
 			<<realSkills_.fighting-baseSkills_.fighting<<endl
 
@@ -148,7 +136,7 @@ public:
 	
 			<<"-      Sorcery : "<<baseSkills_.sorcery<<" + "
 			<<realSkills_.sorcery-baseSkills_.sorcery<<endl
-			<<"- Damage : "<< computeDamageOutput()<<endl;
+			<<"- Damage : "<< computeDamageOutput()<<endl;*/
 	}
 
 	T computeDamageOutput ( ) const
@@ -189,8 +177,8 @@ ostream& operator << ( ostream& o, const Character<Key, T>& c)
 			 <<"-     Fighting : "<<c.baseSkills_.fighting<<" + "
 			 <<c.realSkills_.fighting-c.baseSkills_.fighting<<endl
 
-			 <<"- Marksmanship : "<<c.baseSkills_.¸marksmanship<<" + "
-			 <<c.realSkills_.¸marksmanship-baseSkills_.¸marksmanship<<endl
+			 <<"- Marksmanship : "<<c.baseSkills_.marksmanship<<" + "
+			 <<c.realSkills_.marksmanship-c.baseSkills_.marksmanship<<endl
 	
 			 <<"-      Sorcery : "<<c.baseSkills_.sorcery<<" + "
 			 <<c.realSkills_.sorcery-c.baseSkills_.sorcery<<endl
