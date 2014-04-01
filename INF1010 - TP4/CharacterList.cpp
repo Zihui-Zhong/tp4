@@ -48,7 +48,7 @@ Character<string, int>* CharacterList::findStrongest ( const ClassInfo<int>& cla
 
 }
 
-IsRightClass::IsRightClass( const ClassInfo<int>& clas= ClassInfo<int>() ){
+IsRightClass::IsRightClass( const ClassInfo<int>& clas ){
 	criteria_=clas;
 }
 
