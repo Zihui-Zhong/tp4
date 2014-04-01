@@ -42,7 +42,7 @@ public:
 	// Friends
 	template < typename K, typename U >
 	  friend
-	ostream& operator << ( ostream&, const Character<K, U>& );
+	ostream& operator << ( ostream&, const Character<K, U>& c);
 	
 	
 	// Constructors and destructor
@@ -52,7 +52,7 @@ public:
 	
 	// Modifying methods
 	void setBaseSkills ( const SkillPoints<T>& sp);
-	void addToBaseSkills ( const SkillPoints<T>& );
+	void addToBaseSkills ( const SkillPoints<T>& sp);
 	
 	void insertPowerup ( const Key&, const Powerup<T>& );
 	void removePowerup ( const Key& );

@@ -17,7 +17,6 @@ Character<	typename Key,typename T>::Character( const Character& c)
 	realSkills_ = realSKills_+c.realSkills_;
 	
 	//pas sur
-	//map<Key,Powerup<T>> it;
 	for(map<Key,Powerup<T>>::iterator it = c.powerups_.begin(); it != m.end(); it++)
 	{
 		insertPowerup(it->first, Powerup(it->second, baseSkills_));
@@ -65,6 +64,28 @@ const map<Key, Powerup<T>>& Character<	typename Key,typename T>::getPowerups ( )
 template <	typename Key,typename T>
 void Character<	typename Key,typename T>::setBaseSkills ( const SkillPoints<T>& sp)
 {
-	//avertissement sur real skills?
 	baseSkills_ = sp;
+	realSkills_ = sp;
+	for(map<Key,Powerup<T>>::iterator it = c.powerups_.begin(); it != m.end(); it++)
+	{
+		it->second.applyEffectOn(realSkills);
+	}
+}
+
+template <	typename Key,typename T>
+void Character<	typename Key,typename T>::addToBaseSkills ( const SkillPoints<T>& sp)
+{
+	baseSkills_ = baseSkills_ + sp;
+	realSkills_ = sp;
+	for(map<Key,Powerup<T>>::iterator it = c.powerups_.begin(); it != m.end(); it++)
+	{
+		it->second.applyEffectOn(realSkills);
+	}
+}
+
+
+template < typename K, typename U >
+ostream& operator << ( ostream&, const Character<K, U>& c)
+{
+
 }

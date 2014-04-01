@@ -84,8 +84,11 @@
     <ClInclude Include="SkillPoints.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bonuses.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CharacterList.cpp" />
     <ClCompile Include="ClassInfo.cpp" />
+    <ClCompile Include="DamageModels.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="SkillPoints.cpp" />
