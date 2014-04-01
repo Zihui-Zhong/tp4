@@ -99,7 +99,7 @@ public:
 		computeRealSkills();
 	}
 	
-	void insertPowerup ( const Key& k, const Powerup<T>& p)
+	void insertPowerup ( const Key& key, const Powerup<T>& p)
 	{
 		powerups_[k] = p;
 		computeRealSkills();

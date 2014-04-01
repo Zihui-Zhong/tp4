@@ -75,75 +75,79 @@ int main ( )
 	// Créez un CharacterList avec le conteneur de votre choix, selon les
 	// contraintes de l'énoncé.
 	
-	//CharacterList charList;
+	CharacterList charList;
 	
 	// Affichez la liste avec 'print'.
 	
-	
+	charList.print();
 	
 	cout << "\n\n" << string(80, '*') << "\n\n";
 	
 	
 	// Ajoutez le power-up Magic Wand à Harry Potter.
-	
+	harryPotter.insertPowerup("Magic Wand", magicWand);
 	
 	// Insérez tous les personnages dans la liste.
-	
+	charList.insert(&harryPotter);
+	charList.insert(&aragorn);
+	charList.insert(&robinHood);
+	charList.insert(&captainAmerica);
 	
 	// Affichez la liste avec 'printByClass'.
-	
+	charList.printByClass();
 	
 	
 	cout << "\n\n" << string(80, '*') << "\n\n";
 	
 	
 	// Ajoutez le power-up Magic Weapon à Aragorn et à Captain America.
-	
+	aragorn.insertPowerup("Magic Weapon", magicWeapon);
+	captainAmerica.insertPowerup("Magic Weapon", magicWeapon);
 	
 	// Ajoutez 20 points de 'marksmanship' à Robin Hood en utilisant
 	// 'addToBaseSkills'.
-	
+	robinHood.addToBaseSkills(SkillPoints<int>(0, 20, 0));
 	
 	// Retirez Captain America de la liste.
-	
+	charList.erase(&captainAmerica);
 	
 	// Ajoutez le power-up Skill Potion à Captain America
-	
+	captainAmerica.insertPowerup("Skill Potion", skillPotion);
 	
 	// Ajoutez Captain America à la liste.
-	
+	charList.insert(&captainAmerica);
 	
 	// Triez la liste en ordre croissant de nombre de power-ups appliqués.
 	// Utilisez 'sortCharacters' et le type de prédicat que vous voulez.
-	
+	charList.sortCharacters(2);
 	
 	// Affichez la liste avec 'print'.
-	
+	charList.print();
 	
 	
 	cout << "\n\n" << string(80, '*') << "\n\n";
 	
 	
 	// Ajoutez Aragorn à la liste.
-	
+	charList.insert(&aragorn);
 	
 	// Ajoutez le power-up Magic Bow à Robin Hood.
-	
+	robinHood.insertPowerup("Magic Bow", magicBow);
 	
 	// Affichez la liste avec 'printByClass'.
-	
+	charList.printByClass();
 	
 	// Affichez la liste avec 'printByDamage'.
-	
+	charList.printByDamage();
 	
 	
 	cout << "\n\n" << string(80, '*') << "\n\n";
 	
 	
 	// Affichez le nom du personnage le plus puissant.
-	
+	cout<<"Personnage le plus puissant: "<<charList.findStrongest()->getName()<<endl;
 	
 	// Affichez le nom du Warrior le plus puissant.
-	
+	cout<<"Warrior le plus puissant: "<<charList.findStrongest(warrior)->getName()<<endl;
 }
 
