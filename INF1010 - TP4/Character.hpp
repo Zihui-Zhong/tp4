@@ -139,16 +139,16 @@ public:
 	
 	void print ( ) const
 	{
-		cout<< c.name_ <<", "<<c.class_<<endl
-			<<"-     Fighting : "<<c.baseSkills_.fighting<<" + "
-			<<c.realSkills_.fighting-c.baseSkills_.fighting<<endl
+		cout<< name_ <<", "<<class_<<endl
+			<<"-     Fighting : "<<baseSkills_.fighting<<" + "
+			<<realSkills_.fighting-baseSkills_.fighting<<endl
 
-			<<"- Marksmanship : "<<c.baseSkills_.¸marksmanship<<" + "
-			<<c.realSkills_.¸marksmanship-baseSkills_.¸marksmanship<<endl
+			<<"- Marksmanship : "<<baseSkills_.¸marksmanship<<" + "
+			<<realSkills_.¸marksmanship-baseSkills_.¸marksmanship<<endl
 	
-			<<"-      Sorcery : "<<c.baseSkills_.sorcery<<" + "
-			<<c.realSkills_.sorcery-c.baseSkills_.sorcery<<endl
-			<<"- Damage : "<< c.computeDamageOutput()<<endl;
+			<<"-      Sorcery : "<<baseSkills_.sorcery<<" + "
+			<<realSkills_.sorcery-baseSkills_.sorcery<<endl
+			<<"- Damage : "<< computeDamageOutput()<<endl;
 	}
 
 	T computeDamageOutput ( ) const
