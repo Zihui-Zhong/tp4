@@ -20,13 +20,13 @@ void Powerup<T>::removeEffectFrom ( SkillPoints<T>& sp)
 }
 
 template < typename T >
-const SkillPoints<T>* getTargetBasePoints ( ) const
+const SkillPoints<T>* Powerup<T>::getTargetBasePoints ( ) const
 {
 	return targetBasePoints_;
 }
 
 template < typename T >
-const Bonus<T>* getEffect ( ) const
+const Bonus<T>* Powerup<T>::getEffect ( ) const
 {
 	return effect_;
 }
