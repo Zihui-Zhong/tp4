@@ -1,8 +1,7 @@
 
 
 
-#include "SkillPoints.hpp"
-#include "BaseModelClasses.hpp"
+
 #include "DamageModels.hpp"
 
 int WizardModel::compute( const SkillPoints<int>& sp) const{
