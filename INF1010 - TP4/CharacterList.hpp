@@ -85,13 +85,14 @@ protected:
 
 //{ Globals
 
-bool compareClass ( Character<string, int>*, Character<string, int>* );
+bool compareClass ( Character<string, int>* char1, Character<string, int>* char2 );
 
 
-bool compareDamage ( Character<string, int>*, Character<string, int>* );
+bool compareDamage ( Character<string, int>* char1, Character<string, int>* char2);
 
 
-bool compareName ( Character<string, int>*, Character<string, int>* );
+bool compareName ( Character<string, int>* char1, Character<string, int>* char2);
+
 
 //}
 
