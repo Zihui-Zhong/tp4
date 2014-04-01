@@ -48,7 +48,7 @@ int main ( )
 
 	// Faites un ClassInfo<int> 'archer' qui aura comme nom "Archer", le modèle
 	// archerModel et les valeurs initiales 50, 100, 0.
-	ClassInfo<int> archer = ClassInfo<int>("Archer", &wizardModel, SkillPoints<int>(50, 100,0));
+	ClassInfo<int> archer = ClassInfo<int>("Archer", &archerModel, SkillPoints<int>(50, 100,0));
 	
 	// Créez un Powerup<int> 'magicWeapon' avec 'magicWeaponEffect'.
 	Powerup<int> magicWeapon = Powerup<int>(&magicWeaponEffect);
