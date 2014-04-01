@@ -137,7 +137,20 @@ public:
 		return powerups_;
 	}	
 	
-	void print ( ) const;
+	void print ( ) const
+	{
+		cout<< c.name_ <<", "<<c.class_<<endl
+			<<"-     Fighting : "<<c.baseSkills_.fighting<<" + "
+			<<c.realSkills_.fighting-c.baseSkills_.fighting<<endl
+
+			<<"- Marksmanship : "<<c.baseSkills_.¸marksmanship<<" + "
+			<<c.realSkills_.¸marksmanship-baseSkills_.¸marksmanship<<endl
+	
+			<<"-      Sorcery : "<<c.baseSkills_.sorcery<<" + "
+			<<c.realSkills_.sorcery-c.baseSkills_.sorcery<<endl
+			<<"- Damage : "<< c.computeDamageOutput()<<endl;
+	}
+
 	T computeDamageOutput ( ) const
 	{
 		return class_.computeDamage(realSkills_);
