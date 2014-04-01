@@ -1,7 +1,7 @@
 #include "SkillPoints.hpp"
 
 template < typename T >
-SkillPoints::SkillPoints()
+SkillPoints<T>::SkillPoints()
 {
 	fighting = 0;
 	marksmanship = 0;
@@ -9,7 +9,7 @@ SkillPoints::SkillPoints()
 }
 
 template < typename T >
-SkillPoints::SkillPoints(T f, T m, T s)
+SkillPoints<T>::SkillPoints(T f, T m, T s)
 {
 	fighting = f;
 	marksmanship = m;

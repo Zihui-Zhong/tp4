@@ -26,7 +26,7 @@ struct MagicWeaponEffect
 {
 	// Non-modifying methods
 	         virtual
-	SkillPoints<int> compute ( const SkillPoints<int>& ) const;
+	SkillPoints<int> compute ( const SkillPoints<int>& sp) const;
 };
 
 
@@ -35,7 +35,7 @@ struct MagicBowEffect
 {
 	// Non-modifying methods
 	         virtual
-	SkillPoints<int> compute ( const SkillPoints<int>& ) const;
+	SkillPoints<int> compute ( const SkillPoints<int>& sp) const;
 };
 
 
@@ -44,7 +44,7 @@ struct MagicWandEffect
 {
 	// Non-modifying methods
 	         virtual
-	SkillPoints<int> compute ( const SkillPoints<int>& ) const;
+	SkillPoints<int> compute ( const SkillPoints<int>& sp) const;
 };
 
 
@@ -53,7 +53,7 @@ struct SkillPotionEffect
 {
 	// Non-modifying methods
 	         virtual
-	SkillPoints<int> compute ( const SkillPoints<int>& ) const;
+	SkillPoints<int> compute ( const SkillPoints<int>& sp) const;
 };
 
 //}
