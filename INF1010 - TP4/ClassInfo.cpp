@@ -1,14 +1,14 @@
 #include "ClassInfo.hpp"
 
 template < typename T >
-ClassInfo::ClassInfo ( )
+ClassInfo<T>::ClassInfo ( )
 {
 	name_ = "INVALID";
 	damageModel_ = nullptr;
 }
 
 template < typename T >
-ClassInfo::ClassInfo ( const string& nom, const DamageModel<T>* damage, const SkillPoints<T>& skills)
+ClassInfo<T>::ClassInfo ( const string& nom, const DamageModel<T>* damage, const SkillPoints<T>& skills)
 {
 	name_ = nom;
 	damageModel_ = damage;
@@ -16,25 +16,25 @@ ClassInfo::ClassInfo ( const string& nom, const DamageModel<T>* damage, const Sk
 }
 
 template < typename T >
-const ClassInfo::string& getName ( ) const
+const ClassInfo<T>::string& getName ( ) const
 {
 	return name_;
 }
 
 template < typename T >
-const ClassInfo::DamageModel<T>* getDamageModel ( ) const
+const ClassInfo<T>::DamageModel<T>* getDamageModel ( ) const
 {
 	return damageModel_;
 }
 
 template < typename T >
-const ClassInfo::SkillPoints<T>& getInitialSkills ( ) const
+const ClassInfo<T>::SkillPoints<T>& getInitialSkills ( ) const
 {
 	return initialSkills_;
 }
 
 template < typename T >
-T ClassInfo::computeDamage ( const SkillPoints<T>& sp) const
+T ClassInfo<T>::computeDamage ( const SkillPoints<T>& sp) const
 {
 	//pas sur
 	T t= damageModel_->compute(sp);
@@ -42,7 +42,7 @@ T ClassInfo::computeDamage ( const SkillPoints<T>& sp) const
 }
 
 
-bool ClassInfo::operator == ( const ClassInfo& c) const
+bool ClassInfo<T>::operator == ( const ClassInfo& c) const
 {
 	return name_==c.name_;
 }

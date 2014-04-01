@@ -1,20 +1,20 @@
 #include "Powerup.hpp"
 
 template < typename T >
-Powerup::Powerup ( const Bonus<T>* bonus= nullptr, const SkillPoints<T>* skillPoints= nullptr )
+Powerup<T>::Powerup ( const Bonus<T>* bonus= nullptr, const SkillPoints<T>* skillPoints= nullptr )
 {
 	targetBasePoints_ = skillPoints;
 	effect_ = bonus;
 }
 
 template < typename T >
-void Powerup::applyEffectOn ( SkillPoints<T>& sp)
+void Powerup<T>::applyEffectOn ( SkillPoints<T>& sp)
 {
 	sp= sp+effect_->compute(sp);
 }
 
 template < typename T >
-void Powerup::removeEffectFrom ( SkillPoints<T>& sp)
+void Powerup<T>::removeEffectFrom ( SkillPoints<T>& sp)
 {
 	sp= sp-effect_->compute(sp);
 }
