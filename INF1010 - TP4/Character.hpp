@@ -137,10 +137,7 @@ public:
 	}
 
 	//Non modifying operator
-	bool operator == ( const Character& c) const
-	{
-		return name_==c.name_;
-	}
+
 
 protected:
 	              string name_;

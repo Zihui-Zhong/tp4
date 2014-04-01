@@ -121,7 +121,7 @@ int main ( )
 	
 	// Triez la liste en ordre croissant de nombre de power-ups appliqués.
 	// Utilisez 'sortCharacters' et le type de prédicat que vous voulez.
-	charList.sortCharacters(2);
+	//charList.sortCharacters(2);
 	
 	// Affichez la liste avec 'print'.
 	charList.print();
@@ -129,9 +129,10 @@ int main ( )
 	
 	cout << "\n\n" << string(80, '*') << "\n\n";
 	
-	/*
+	
 	// Ajoutez Aragorn à la liste.
 	charList.insert(&aragorn);
+		
 	
 	// Ajoutez le power-up Magic Bow à Robin Hood.
 	robinHood.insertPowerup("Magic Bow", magicBow);
@@ -151,7 +152,7 @@ int main ( )
 	
 	// Affichez le nom du Warrior le plus puissant.
 	cout<<"Warrior le plus puissant: "<<charList.findStrongest(warrior)->getName()<<endl;
-
-	*/
+	
+	
 }
 

@@ -1,12 +1,23 @@
 #include "CharacterList.hpp"
 
 void A(Character<string, int>* a);
+
+
 void CharacterList::insert ( Character<string, int>* character){
-	characters_.push_back(character);
+	if(characters_.size()>0){
+		if(( find(characters_.begin(),characters_.end(),character)==characters_.end()) && (character!= characters_.back()))
+			characters_.push_back(character);	
+
+	}else{
+		characters_.push_back(character);
+	}
 }
 void CharacterList::erase ( Character<string, int>* character){	
+
 	std::remove(characters_.begin(),characters_.end(),character);
-	
+	if(character==characters_.back()){
+		characters_.pop_back();
+	}
 }
 
 const vector<Character<string, int>*>& CharacterList::getCharacters ( ) const{
@@ -64,17 +75,17 @@ bool IsRightClass::operator () ( const Character<string, int>* class_) const{
 
 
 bool compareClass ( Character<string, int>* char1, Character<string, int>* char2){
-	return char1->getClass().getName()>char2->getClass().getName();
+	return char1->getClass().getName()<char2->getClass().getName();
 }
 
 
 bool compareDamage ( Character<string, int>* char1, Character<string, int>* char2){
-	return char1->computeDamageOutput()>char2->computeDamageOutput();
+	return char1->computeDamageOutput()<char2->computeDamageOutput();
 
 }
 
 
 bool compareName ( Character<string, int>* char1, Character<string, int>* char2)
 {
-	return char1->getName()>char2->getName();
+	return char1->getName()<char2->getName();
 }
