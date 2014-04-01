@@ -1,5 +1,6 @@
 #include "ClassInfo.hpp"
 
+
 template < typename T >
 ClassInfo<T>::ClassInfo ( )
 {
@@ -16,19 +17,19 @@ ClassInfo<T>::ClassInfo ( const string& nom, const DamageModel<T>* damage, const
 }
 
 template < typename T >
-const ClassInfo<T>::string& getName ( ) const
+const string& ClassInfo<T>::getName ( ) const
 {
 	return name_;
 }
 
 template < typename T >
-const ClassInfo<T>::DamageModel<T>* getDamageModel ( ) const
+const DamageModel<T>* ClassInfo<T>::getDamageModel ( ) const
 {
 	return damageModel_;
 }
 
 template < typename T >
-const ClassInfo<T>::SkillPoints<T>& getInitialSkills ( ) const
+const SkillPoints<T>& ClassInfo<T>::getInitialSkills ( ) const
 {
 	return initialSkills_;
 }
@@ -36,12 +37,10 @@ const ClassInfo<T>::SkillPoints<T>& getInitialSkills ( ) const
 template < typename T >
 T ClassInfo<T>::computeDamage ( const SkillPoints<T>& sp) const
 {
-	//pas sur
-	T t= damageModel_->compute(sp);
-	return t; 
+	return damageModel_->compute(sp);
 }
 
-
+template < typename T >
 bool ClassInfo<T>::operator == ( const ClassInfo& c) const
 {
 	return name_==c.name_;
