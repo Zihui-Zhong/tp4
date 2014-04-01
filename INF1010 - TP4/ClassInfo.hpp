@@ -55,7 +55,7 @@ public:
 		return damageModel_;
 	}
 
-	const SkillPoints<T>& const SkillPoints<T>& ClassInfo<T>::getInitialSkills ( ) const
+	const SkillPoints<T>& getInitialSkills ( ) const
 	{
 		return initialSkills_;
 	}
