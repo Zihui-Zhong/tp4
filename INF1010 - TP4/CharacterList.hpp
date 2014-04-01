@@ -56,7 +56,6 @@ public:
 	Character<string, int>* findStrongest ( ) const;
 	Character<string, int>* findStrongest ( const ClassInfo<int>& ) const;
 
-
 protected:
 	vector<Character<string, int>*> characters_;
 };

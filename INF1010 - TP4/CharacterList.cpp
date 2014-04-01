@@ -1,6 +1,6 @@
 #include "CharacterList.hpp"
 
-
+void A(Character<string, int>* a);
 void CharacterList::insert ( Character<string, int>* character){
 	characters_.push_back(character);
 }
@@ -14,9 +14,15 @@ const vector<Character<string, int>*>& CharacterList::getCharacters ( ) const{
 }
 
 void CharacterList::print ( ) const{
-	for_each(characters_.begin(),characters_.end(),print);
-	
+	for_each(characters_.begin(),characters_.end(),A);
+
 }
+void A(Character<string, int>* a){
+	a->Character<string, int>::print();
+
+}
+
+
 
 void CharacterList::printByClass ( ) const{
 	sort(characters_.begin(), characters_.end(), compareDamage);
@@ -37,7 +43,7 @@ Character<string, int>* CharacterList::findStrongest ( const ClassInfo<int>& cla
 {
 	sort(characters_.begin(), characters_.end(), compareDamage);
 	stable_sort(characters_.begin(), characters_.end(),compareClass);
-		return *max_element(characters_.begin(),characters_.end(),compareDamage);
+	return *max_element(characters_.begin(),characters_.end(),compareDamage);
 
 }
 
