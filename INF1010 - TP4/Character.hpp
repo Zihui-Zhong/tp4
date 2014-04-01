@@ -155,9 +155,9 @@ protected:
 	void computeRealSkills()
 	{
 		realSkills_ = baseSkills_;
-		for(map<Key,Powerup<T>>::iterator it = c.powerups_.begin(); it != m.end(); it++)
+		for(map<Key,Powerup<T>>::iterator it = powerups_.begin(); it != powerups_.end(); it++)
 		{
-			it->second.applyEffectOn(realSkills);
+			it->second.applyEffectOn(realSkills_);
 		}
 	}
 };
