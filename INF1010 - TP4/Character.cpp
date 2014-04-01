@@ -7,7 +7,7 @@ Character::Character ( )
 }
 
 template <	typename Key,typename T>
-Character::Character ( const Character& c)
+Character::Character( const Character& c)
 {
 	name_ = string(c.name_);
 	class_ = ClassInfo(c.class_.getName(), c.class_.getDamageModel(), c.class_.getInitialSkills());
@@ -15,8 +15,14 @@ Character::Character ( const Character& c)
 	baseSkills_ baseSkills_+c.baseSkills_;
 	realSkills_ = SkillPoints();
 	realSkills_ = realSKills_+c.realSkills_;
+	
+	//pas sur
+	//map<Key,Powerup<T>> it;
+	for(map<Key,Powerup<T>>::iterator it = c.powerups_.begin(); it != m.end(); it++)
+	{
+		insertPowerup(it->first, Powerup(it->second, baseSkills_));
+	}
 
-	//copier maps ici
 }
 
 template <	typename Key,typename T>
@@ -56,6 +62,7 @@ const map<Key, Powerup<T>>& Character::getPowerups ( ) const
 	return powerups_;
 }
 
+template <	typename Key,typename T>
 void Character::setBaseSkills ( const SkillPoints<T>& sp)
 {
 	//avertissement sur real skills?
