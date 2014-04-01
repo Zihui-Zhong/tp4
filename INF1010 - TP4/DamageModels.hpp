@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 //        FILE : DamageModels.hpp
-//      AUTHOR : 
-//        DATE :   Creation : 
-//               Last entry : 
-// DESCRIPTION :
+//      AUTHOR : Zihui Zhong, Pascal Desrochers
+//        DATE : 31 mars 2014  
+//               Last entry : 31 mars 2014
+// DESCRIPTION : Classe contenant les differents modeles de dommages
 ////////////////////////////////////////////////////////////////////////////////
 
 #pragma once

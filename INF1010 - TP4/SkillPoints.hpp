@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 //        FILE : SkillPoints.hpp
-//      AUTHOR : 
-//        DATE :   Creation : 
-//               Last entry : 
-// DESCRIPTION :
+//      AUTHOR : Zihui Zhong, Pascal Desrochers
+//        DATE : 31 mars 2014  
+//               Last entry : 31 mars 2014
+// DESCRIPTION : Habilete de combat d'un personnage
 ////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -52,8 +52,7 @@ SkillPoints<T> operator + ( const SkillPoints<T>& sp1, const SkillPoints<T>& sp2
 
 template < typename T >
 SkillPoints<T> operator - ( const SkillPoints<T>& sp1, const SkillPoints<T>& sp2){
-	sp = SkillPoints();
-	sp = sp1;
+	SkillPoints<T> sp = sp1;
 	sp.fighting -= sp2.fighting;
 	sp.marksmanship -= sp2.marksmanship;
 	sp.sorcery -= sp2.sorcery;

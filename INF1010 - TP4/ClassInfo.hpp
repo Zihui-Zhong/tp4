@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 //        FILE : ClassInfo.hpp
-//      AUTHOR : 
-//        DATE :   Creation : 
-//               Last entry : 
-// DESCRIPTION :
+//      AUTHOR : Zihui Zhong, Pascal Desrochers
+//        DATE : 31 mars 2014 
+//               Last entry : 31 mars 2014
+// DESCRIPTION : Classe contenant des info sur la classe du personnage
 ////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -60,7 +60,11 @@ public:
 		return initialSkills_;
 	}
 	
-
+	/**
+	* Calcul les dommages que le character inflige
+	* @param sp skillpoints pour calculer les dommages
+	* @return dommages calcule
+	*/
 	T computeDamage ( const SkillPoints<T>& sp) const
 	{
 		return damageModel_->compute(sp);

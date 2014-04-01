@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 //        FILE : Character.hpp
-//      AUTHOR : 
-//        DATE :   Creation : 
-//               Last entry : 
-// DESCRIPTION :
+//      AUTHOR : Zihui Zhong, Pascal Desrochers
+//        DATE : 31 mars 2014  
+//               Last entry : 31 mars 2014
+// DESCRIPTION : Classe d'un personnage
 ////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -59,7 +59,6 @@ public:
 		realSkills_ = SkillPoints();
 		realSkills_ = realSKills_+c.realSkills_;
 	
-		//pas sur
 		for(map<Key,Powerup<T>>::iterator it = c.powerups_.begin(); it != m.end(); it++)
 		{
 			insertPowerup(it->first, Powerup(it->second, baseSkills_));
@@ -78,7 +77,6 @@ public:
 	void setBaseSkills ( const SkillPoints<T>& sp)
 	{
 		baseSkills_ = sp;
-		realSkills_ = baseSkills_;
 		computeRealSkills();
 	}
 
@@ -88,12 +86,21 @@ public:
 		computeRealSkills();
 	}
 	
+	/**
+	* Ajoute un nouveau powerup au personnage
+	* @param key cle du powerup
+	* @param p powerup a ajouter
+	*/
 	void insertPowerup ( const Key& key, const Powerup<T>& p)
 	{
 		powerups_[key] = p;
 		computeRealSkills();
 	}
 
+	/**
+	* Retire un powerup du personnage
+	* @param key cle du powerup
+	*/
 	void removePowerup ( const Key& key)
 	{
 		powerups_.erase(key);
@@ -131,6 +138,9 @@ public:
 		cout<<(*this);
 	}
 
+	/**
+	* Calcul les dommages inflige du personnage
+	*/
 	T computeDamageOutput ( ) const
 	{
 		return class_.computeDamage(realSkills_);
@@ -146,6 +156,10 @@ protected:
 	      SkillPoints<T> realSkills_;  // Après application des powerups.
 	map<Key, Powerup<T>> powerups_;
 
+
+	/**
+	* Calcul les realSkills_ en appliquant tous les powerups sur les baseSkill_
+	*/
 	void computeRealSkills()
 	{
 		realSkills_ = baseSkills_;
