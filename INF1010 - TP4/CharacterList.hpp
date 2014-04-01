@@ -38,11 +38,11 @@ class CharacterList
 {
 public:
 	// Modifying methods
-	void insert ( Character<string, int>* );
-	void erase ( Character<string, int>* );
+	void insert ( Character<string, int>* character);
+	void erase ( Character<string, int>* character);
 	
 	template < typename Pred >
-	    void sortCharacters ( const Pred& );
+	    void sortCharacters ( const Pred& predicat);
 	
 	// Non-modifying methods
 	const vector<Character<string, int>*>& getCharacters ( ) const;

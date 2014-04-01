@@ -1,13 +1,13 @@
 #include "Character.hpp"
 
 template <	typename Key,typename T>
-Character::Character ( )
+Character<	typename Key,typename T>::Character ( )
 {
 	name_ = "INVALID";
 }
 
 template <	typename Key,typename T>
-Character::Character( const Character& c)
+Character<	typename Key,typename T>::Character( const Character& c)
 {
 	name_ = string(c.name_);
 	class_ = ClassInfo(c.class_.getName(), c.class_.getDamageModel(), c.class_.getInitialSkills());
@@ -26,44 +26,44 @@ Character::Character( const Character& c)
 }
 
 template <	typename Key,typename T>
-Character::Character ( const string& nom, const ClassInfo<T>& classe)
+Character<	typename Key,typename T>::Character ( const string& nom, const ClassInfo<T>& classe)
 {
 	name_ = nom;
 	class_ = classe;
 }
 
 template <	typename Key,typename T>
-const string& Character::getName ( ) const
+const string& Character<	typename Key,typename T>::getName ( ) const
 {
 	return name_;
 }
 
 template <	typename Key,typename T>
-const ClassInfo<T>& Character::getClass ( ) const
+const ClassInfo<T>& Character<	typename Key,typename T>::getClass ( ) const
 {
 	return class_;
 }
 
 template <	typename Key,typename T>
-const SkillPoints<T>& Character::getBaseSkills ( ) const
+const SkillPoints<T>& Character<	typename Key,typename T>::getBaseSkills ( ) const
 {
 	return baseSkills_;
 }
 
 template <	typename Key,typename T>
-const SkillPoints<T>& Character::getRealSkills ( ) const
+const SkillPoints<T>& Character<	typename Key,typename T>::getRealSkills ( ) const
 {
 	return realSkills_;
 }
 
 template <	typename Key,typename T>
-const map<Key, Powerup<T>>& Character::getPowerups ( ) const
+const map<Key, Powerup<T>>& Character<	typename Key,typename T>::getPowerups ( ) const
 {
 	return powerups_;
 }
 
 template <	typename Key,typename T>
-void Character::setBaseSkills ( const SkillPoints<T>& sp)
+void Character<	typename Key,typename T>::setBaseSkills ( const SkillPoints<T>& sp)
 {
 	//avertissement sur real skills?
 	baseSkills_ = sp;
