@@ -37,6 +37,7 @@ Character<string, int>* CharacterList::findStrongest ( const ClassInfo<int>& cla
 {
 	sort(characters_.begin(), characters_.end(), compareDamage);
 	stable_sort(characters_.begin(), characters_.end(),compareClass);
+		return *max_element(characters_.begin(),characters_.end(),compareDamage);
 
 }
 
