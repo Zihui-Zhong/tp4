@@ -25,13 +25,19 @@ void A(Character<string, int>* a){
 
 
 void CharacterList::printByClass ( ) const{
-	sort(characters_.begin(), characters_.end(), compareDamage);
-	stable_sort(characters_.begin(), characters_.end(),compareClass);
-	print();
+	vector<Character<string, int>*> copy_;
+	copy(characters_.begin(),characters_.end(),copy_.begin());
+	sort(copy_.begin(), copy_.end(), compareDamage);
+	stable_sort(copy_.begin(), copy_.end(),compareClass);
+	for_each(copy_.begin(),copy_.end(),A);
 }
+
+
 void CharacterList::printByDamage ( ) const{
-	sort(characters_.begin(),characters_.end(),compareDamage);
-	print();
+	vector<Character<string, int>*> copy_;
+	copy(characters_.begin(),characters_.end(),copy_.begin());
+	sort(copy_.begin(), copy_.end(), compareDamage);
+	for_each(copy_.begin(),copy_.end(),A);
 }
 
 Character<string, int>* CharacterList::findStrongest ( ) const{
