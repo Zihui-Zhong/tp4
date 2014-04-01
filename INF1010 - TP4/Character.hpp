@@ -42,30 +42,106 @@ public:
 	// Friends
 	template < typename K, typename U >
 	  friend
-	ostream& operator << ( ostream&, const Character<K, U>& c);
+	ostream& operator << ( ostream&, const Character<K, U>& c)
+	{
+		return o << c.name_ <<", "<<c.class_<<endl
+				 <<"-     Fighting : "<<c.baseSkills_.fighting<<" + "
+				 <<c.realSkills_.fighting-c.baseSkills_.fighting<<endl
+
+				 <<"- Marksmanship : "<<c.baseSkills_.¸marksmanship<<" + "
+				 <<c.realSkills_.¸marksmanship-baseSkills_.¸marksmanship<<endl
 	
+				 <<"-      Sorcery : "<<c.baseSkills_.sorcery<<" + "
+				 <<c.realSkills_.sorcery-c.baseSkills_.sorcery<<endl
+	
+				 <<"- Damage : "<< c.computeDamageOutput()<<endl;	
+	}
 	
 	// Constructors and destructor
-	Character ( );
-	Character ( const Character& c);
-	Character ( const string& nom, const ClassInfo<T>& classe);
+	Character ( )
+	{
+		name_ = "INVALID";
+	}
+
+	Character( const Character& c)
+	{
+		name_ = string(c.name_);
+		class_ = ClassInfo(c.class_.getName(), c.class_.getDamageModel(), c.class_.getInitialSkills());
+		baseSkills_ = SkillPoints();
+		baseSkills_ baseSkills_+c.baseSkills_;
+		realSkills_ = SkillPoints();
+		realSkills_ = realSKills_+c.realSkills_;
+	
+		//pas sur
+		for(map<Key,Powerup<T>>::iterator it = c.powerups_.begin(); it != m.end(); it++)
+		{
+			insertPowerup(it->first, Powerup(it->second, baseSkills_));
+		}
+	}
+
+	Character ( const string& nom, const ClassInfo<T>& classe)
+	{
+		name_ = nom;
+		class_ = classe;
+	}
 	
 	// Modifying methods
-	void setBaseSkills ( const SkillPoints<T>& sp);
-	void addToBaseSkills ( const SkillPoints<T>& sp);
+	void setBaseSkills ( const SkillPoints<T>& sp)
+	{
+		baseSkills_ = sp;
+		realSkills_ = baseSkills_;
+		computeRealSkills();
+	}
+
+	void addToBaseSkills ( const SkillPoints<T>& sp)
+	{
+		baseSkills_ = baseSkills_ + sp;
+		computeRealSkills();
+	}
 	
-	void insertPowerup ( const Key&, const Powerup<T>& );
-	void removePowerup ( const Key& );
+	void insertPowerup ( const Key& k, const Powerup<T>& p)
+	{
+		powerups_[k] = p;
+		computeRealSkills();
+	}
+
+	void removePowerup ( const Key& k)
+	{
+		powerups_.erase(k);
+		computeRealSkills();
+	}
 	
 	// Non-modifying methods
-	              const string& getName ( ) const;
-	        const ClassInfo<T>& getClass ( ) const;
-	      const SkillPoints<T>& getBaseSkills ( ) const;
-	      const SkillPoints<T>& getRealSkills ( ) const;
-	const map<Key, Powerup<T>>& getPowerups ( ) const;
+	const string& getName ( ) const
+	{
+		return name_;
+	}
+
+	const ClassInfo<T>& getClass ( ) const
+	{
+		return class_;
+	}
+
+	const SkillPoints<T>& getBaseSkills ( ) const
+	{
+		return baseSkills_;
+	}
+
+	const SkillPoints<T>& getRealSkills ( ) const
+	{
+		return realSkills_;
+	}
+
+	const map<Key, Powerup<T>>& getPowerups ( ) const
+	{
+		return powerups_;
+	}	
 	
 	void print ( ) const;
-	   T computeDamageOutput ( ) const;
+	T computeDamageOutput ( ) const
+	{
+		return class_.computeDamage(realSkills_);
+	}
 
 
 protected:
@@ -74,6 +150,15 @@ protected:
 	      SkillPoints<T> baseSkills_;  // Avant application des powerups.
 	      SkillPoints<T> realSkills_;  // Après application des powerups.
 	map<Key, Powerup<T>> powerups_;
+
+	void computeRealSkills()
+	{
+		realSkills_ = baseSkills_;
+		for(map<Key,Powerup<T>>::iterator it = c.powerups_.begin(); it != m.end(); it++)
+		{
+			it->second.applyEffectOn(realSkills);
+		}
+	}
 };
 
 //}

@@ -26,8 +26,7 @@ struct SkillPoints
 	fighting = f;
 	marksmanship = m;
 	sorcery = s;
-
-}
+	}
 
 
 	T fighting;
