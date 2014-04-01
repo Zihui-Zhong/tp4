@@ -15,15 +15,30 @@ const vector<Character<string, int>*>& CharacterList::getCharacters ( ) const{
 
 void CharacterList::print ( ) const{
 	for_each(characters_.begin(),characters_.end(),print);
+	
 }
 
+void CharacterList::printByClass ( ) const{
+	sort(characters_.begin(), characters_.end(), compareDamage);
+	stable_sort(characters_.begin(), characters_.end(),compareClass);
+	print();
+}
+void CharacterList::printByDamage ( ) const{
+	sort(characters_.begin(),characters_.end(),compareDamage);
+	print();
+}
 
+Character<string, int>* CharacterList::findStrongest ( ) const{
+	return *max_element(characters_.begin(),characters_.end(),compareDamage);
 
-void printByClass ( ) const;
-void printByDamage ( ) const;
-Character<string, int>* findStrongest ( ) const;
-Character<string, int>* findStrongest ( const ClassInfo<int>& ) const;
+}
 
+Character<string, int>* CharacterList::findStrongest ( const ClassInfo<int>& class_) const
+{
+	sort(characters_.begin(), characters_.end(), compareDamage);
+	stable_sort(characters_.begin(), characters_.end(),compareClass);
+
+}
 
 bool compareClass ( Character<string, int>* char1, Character<string, int>* char2){
 	return char1->getClass().getName()>char2->getClass().getName();

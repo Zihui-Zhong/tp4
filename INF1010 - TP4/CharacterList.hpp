@@ -44,7 +44,7 @@ public:
 	template < typename Pred >
 	void sortCharacters ( const Pred& predicat)
 	{
-		sort(characters_.begin(), characters_end(), predicat);
+		sort(characters_.begin(), characters_.end(), predicat);
 	}
 
 	// Non-modifying methods
@@ -73,7 +73,7 @@ public:
 	IsRightClass ( const ClassInfo<int>& = ClassInfo<int>() );
 
 	// Function call operators
-	bool operator () ( const Character<string, int>* ) const;
+	bool operator () ( const Character<string, int>* class_) const;
 
 
 protected:
