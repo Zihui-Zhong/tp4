@@ -100,7 +100,7 @@ int main ( )
 	
 	
 	cout << "\n\n" << string(80, '*') << "\n\n";
-	
+	/*
 	
 	// Ajoutez le power-up Magic Weapon à Aragorn et à Captain America.
 	aragorn.insertPowerup("Magic Weapon", magicWeapon);
@@ -152,6 +152,6 @@ int main ( )
 	// Affichez le nom du Warrior le plus puissant.
 	cout<<"Warrior le plus puissant: "<<charList.findStrongest(warrior)->getName()<<endl;
 
-	
+	*/
 }
 

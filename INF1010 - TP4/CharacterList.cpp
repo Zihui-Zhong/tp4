@@ -25,7 +25,7 @@ void A(Character<string, int>* a){
 
 
 void CharacterList::printByClass ( ) const{
-	vector<Character<string, int>*> copy_;
+	vector<Character<string, int>*> copy_(characters_.size());
 	copy(characters_.begin(),characters_.end(),copy_.begin());
 	sort(copy_.begin(), copy_.end(), compareDamage);
 	stable_sort(copy_.begin(), copy_.end(),compareClass);
@@ -34,7 +34,7 @@ void CharacterList::printByClass ( ) const{
 
 
 void CharacterList::printByDamage ( ) const{
-	vector<Character<string, int>*> copy_;
+	vector<Character<string, int>*> copy_(characters_.size());
 	copy(characters_.begin(),characters_.end(),copy_.begin());
 	sort(copy_.begin(), copy_.end(), compareDamage);
 	for_each(copy_.begin(),copy_.end(),A);
@@ -47,9 +47,9 @@ Character<string, int>* CharacterList::findStrongest ( ) const{
 
 Character<string, int>* CharacterList::findStrongest ( const ClassInfo<int>& class_) const
 {
-	vector<Character<string, int>*> copy;
+	vector<Character<string, int>*> copy_(characters_.size());
 	IsRightClass a(class_);
-	copy_if(characters_.begin(),characters_.end(),copy.begin(),a);
+	copy_if(characters_.begin(),characters_.end(),copy_.begin(),a);
 	return *max_element(characters_.begin(),characters_.end(),compareDamage);
 
 }
