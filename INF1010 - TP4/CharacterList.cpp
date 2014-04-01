@@ -1,8 +1,20 @@
+////////////////////////////////////////////////////////////////////////////////
+//        FILE : CharacterList.cpp
+//      AUTHOR : Zihui Zhong, Pascal Desrochers
+//        DATE : 31 mars 2014  
+//               Last entry : 31 mars 2014
+// DESCRIPTION : Implementaion de la liste de personnage
+////////////////////////////////////////////////////////////////////////////////
+
 #include "CharacterList.hpp"
 
 void A(Character<string, int>* a);
 
 
+/**
+* Insere un nouveau personnage a la liste
+* @param character personnage a ajouter
+*/
 void CharacterList::insert ( Character<string, int>* character){
 	if(characters_.size()>0){
 		if(( find(characters_.begin(),characters_.end(),character)==characters_.end()) && (character!= characters_.back()))
@@ -12,6 +24,10 @@ void CharacterList::insert ( Character<string, int>* character){
 		characters_.push_back(character);
 	}
 }
+/**
+* Retire un personnage de la liste
+* @param character personnage a retirer
+*/
 void CharacterList::erase ( Character<string, int>* character){	
 
 	std::remove(characters_.begin(),characters_.end(),character);
@@ -34,7 +50,9 @@ void A(Character<string, int>* a){
 }
 
 
-
+/**
+* Affiche les personnages de la liste en les classant selon leur classe
+*/
 void CharacterList::printByClass ( ) const{
 	vector<Character<string, int>*> copy_(characters_.size());
 	copy(characters_.begin(),characters_.end(),copy_.begin());
@@ -43,7 +61,9 @@ void CharacterList::printByClass ( ) const{
 	for_each(copy_.begin(),copy_.end(),A);
 }
 
-
+/**
+* Affiche les personnages de la liste en les classant selon leur dommages inflige
+*/
 void CharacterList::printByDamage ( ) const{
 	vector<Character<string, int>*> copy_(characters_.size());
 	copy(characters_.begin(),characters_.end(),copy_.begin());
@@ -51,11 +71,20 @@ void CharacterList::printByDamage ( ) const{
 	for_each(copy_.begin(),copy_.end(),A);
 }
 
+/**
+* Retourne le personnage le plus fort de la liste
+* @return personnage le plus fort
+*/
 Character<string, int>* CharacterList::findStrongest ( ) const{
 	return *max_element(characters_.begin(),characters_.end(),compareDamage);
 
 }
 
+/**
+* Retourne le personnage le plus fort de la liste selon la classe specifie
+* @param class classe specifie
+* @return personnage le plus fort
+*/
 Character<string, int>* CharacterList::findStrongest ( const ClassInfo<int>& class_) const
 {
 	vector<Character<string, int>*> copy_(characters_.size());

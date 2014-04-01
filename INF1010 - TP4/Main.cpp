@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 //        FILE : Main.cpp
-//      AUTHOR : 
-//        DATE :   Creation : 
-//               Last entry : 
-// DESCRIPTION :
+//      AUTHOR : Zihui Zhong, Pascal Desrochers
+//        DATE : 31 mars 2014  
+//               Last entry : 31 mars 2014
+// DESCRIPTION : main du programme
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <map>
@@ -144,6 +144,7 @@ int main ( )
 	// Affichez la liste avec 'printByClass'.
 	charList.printByClass();
 	
+	cout << "\n\n" << string(80, '*') << "\n\n";
 	// Affichez la liste avec 'printByDamage'.
 	charList.printByDamage();
 	

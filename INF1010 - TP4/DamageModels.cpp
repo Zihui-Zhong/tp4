@@ -1,6 +1,10 @@
-
-
-
+////////////////////////////////////////////////////////////////////////////////
+//        FILE : DamageModels.cpp
+//      AUTHOR : Zihui Zhong, Pascal Desrochers
+//        DATE : 31 mars 2014  
+//               Last entry : 31 mars 2014
+// DESCRIPTION : Implementation des modeles de dommage
+////////////////////////////////////////////////////////////////////////////////
 
 #include "DamageModels.hpp"
 
